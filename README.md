@@ -1,1 +1,1 @@
-All of the files and notes from CSC-132
+All of the files and notes from CS-132
