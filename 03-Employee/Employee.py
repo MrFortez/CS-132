@@ -12,7 +12,7 @@ from abc import ABC, abstractmethod
 # pay. It also has email and position as instance variables. It contains
 # a single abstract method i.e. applyRaise, and a createEmail function
 # that creates an appropriate email address from the employee's first
-# and last names.
+# and last names. 
 ######################################################################
 
 class Employee(ABC):
