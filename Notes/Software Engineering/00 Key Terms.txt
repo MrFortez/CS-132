@@ -1,0 +1,40 @@
+The Software Lifecycle - a model of how software is developed,
+    used, maintained, and dies.
+
+CRC Cards - Class, Responsibilities, Collaborator Cards.
+    a tool/strategy to capture the classes (nouns),
+    their Responsibilities (verbs),
+    and their collaborators (other classes)
+
+
+Documentation - The What and Why of the Code
+    frequently takes the form of comments in your Code
+    
+Prototyping - the process of generating a preliminary model
+    of an application or creating an early version to test
+
+Iterative Development - the process of implementing the basic
+    functionality, testing it, implementing a little more, testing that,
+    builidng on top of that funcitonality, and testing, and so on.
+
+Testing - searching for the presence of errors.
+
+Regression Testing - the process of running tests to see if anything that was previously
+    working is now broken. The bit of code that is not working anymore is called 
+    a Regression.
+    
+Debugging - the process of finding the source of an errors.
+
+Rubber Duck Debugging - debugging by describing what is happening in your code to a
+    rubber duck (or jsut describing the code out loud).
+
+Profiling - the process of fixing performance issues in code.
+    Typically done using a tool (a profiler)
+
+Refactoring - the process of modifying code without introducing new features.'
+    Typically done to make code more maintainable, more readable, fewer lines, etc.
+    (focusing on cohesion and coupling)
+
+Sanitizing Input - ensuring input is of the proper data type, in the proper range of values,
+    making sure it's valid in any way before it.`
+

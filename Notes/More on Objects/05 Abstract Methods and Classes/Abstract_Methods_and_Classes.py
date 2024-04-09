@@ -35,8 +35,8 @@ class Bird(Animal):
     def __init__(self) -> None:
         pass
 
-    # def communicate(self):
-    #     print("chirp tweet caw")
+    def communicate(self):
+        print("chirp tweet caw")
 
 # a = Animal()  # This will cause an error
 b = Bird()
