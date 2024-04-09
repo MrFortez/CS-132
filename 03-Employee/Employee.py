@@ -63,6 +63,14 @@ class Employee(ABC):
         if (val.find("@latech.edu") >= 0):
             self._email = val
 
+    @property
+    def position(self):
+        return self._position
+    
+    @position.setter
+    def position(self, val):
+        self._position = val
+
     def createEmail(self):
         return f"{self.firstname.lower()}.{self.lastname.lower()}@latech.edu"
     
