@@ -74,6 +74,13 @@ u = User("coreill", 123456)
 
 ## Dictionary Comprehension ##
 epicDictionary = {x:x+1 for x in range(10) if x % 2 == 0}
+# epicDictionary = {}
+
+
+for x in range(10):
+    if x % 2 == 0:
+        epicDictionary[x] = x+1
+
 print(epicDictionary)
 
 names = ["Stephanie", "August", "DAB", "Fay", "Blaine", "Adam", "Nick"]

@@ -26,12 +26,40 @@ print(firstCharacters)
 numbers = [i for i in range(10)]
 print(numbers)
 
+# Normal way
+for i in range(10):
+    numbers.append(i)
+
+
+# with list comp
 firstCharacters = [name[0] for name in names]
 print(firstCharacters)
 
+# Normal way
+for name in names:
+    firstCharacters.append(name[0])
+
+
+# with list comp
 evens = [i for i in range(10) if i%2 == 0]
+
+# normal way
+for i in range(10):
+    if i % 2 == 0:
+        evens.append(i)
+
+
 firsts = [name[0] for name in names if len(name) % 2 == 0]
+
+for name in names:
+    if len(name) % 2 == 0:
+        firsts.append(name[0])
+
 
 # nesting
 pairs = [(x, y) for x in range(4) for y in range(5)]
 print(pairs)
+
+for x in range(4):
+    for y in range(5):
+        pairs.append((x, y))

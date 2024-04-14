@@ -1,6 +1,6 @@
 ## Map ##
 #   a function(not really but who cares)
-#   that mpas some input to an output
+#   that maps some input to an output
 #   Takes In:
 #       -A function that defines the maping
 #       -an iterable

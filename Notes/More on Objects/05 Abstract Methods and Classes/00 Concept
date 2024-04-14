@@ -1,0 +1,15 @@
+Abstract Methods:
+Methods that are intended to be implemented in subclasses of the abstract class
+A way of promising the subclasses will implement functionality
+
+Abstract CLasses:
+Classes that are designed to never be instantiated
+Serves as a template for sublass
+
+Conrete Classes:
+Classes that can be and are designed to be instantiated 
+
+3 Ways To Implement:
+    1. raise NotImplementedError
+    2. (recommended) Use the ABC class (Abstract Base Class)
+    3. Use ABCMeta (deprecated.. don't do this)

@@ -23,10 +23,10 @@ Regression Testing - the process of running tests to see if anything that was pr
     working is now broken. The bit of code that is not working anymore is called 
     a Regression.
     
-Debugging - the process of finding the source of an errors.
+Debugging - the process of finding the source of an error.
 
 Rubber Duck Debugging - debugging by describing what is happening in your code to a
-    rubber duck (or jsut describing the code out loud).
+    rubber duck (or just describing the code out loud).
 
 Profiling - the process of fixing performance issues in code.
     Typically done using a tool (a profiler)

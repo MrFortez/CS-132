@@ -2,8 +2,8 @@
 #Items are unique
 #Sets are unordered
 
-mySet = {1,3,3,3,2,3,3,3,4,5,6} #curly brackets for sets
-# print(mySet)
+mySet = {1,3,3,3,2,4,5,6} #curly brackets for sets
+print(mySet)
 
 # can convert lists to sets to get unique values
 myList = [1,2,2,2,2,2,2,3,4,5]
