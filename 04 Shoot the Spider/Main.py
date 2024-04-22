@@ -122,7 +122,7 @@ while (ENDING):
         # Draw the text surface onto the screen
         screen.blit(textBackground, textBackgroundRect)
         screen.blit(text, textRect)
-  
+   
 
         pygame.display.flip()
 

@@ -75,7 +75,7 @@ class Game(Frame):
 
         r2.addGrabbable("baby_gronk")
 
-        r3.addGrabbable("The_Ultimate_Godly_Legendary_Super_Saiyan_True_Excalibur")
+        r3.addGrabbable("the_ultimate_godly_legendary_super_saiyan_true_excalibur")
 
         r4.addGrabbable("a_gun")
 
@@ -144,13 +144,31 @@ class Game(Frame):
 
 
     def handleGo(self, direction):
-        pass
+        status = Game.Status.BAD_EXIT
+
+        if direction in self.currentRoom.exits:
+            self.currentRoom = self.currentRoom.exits[direction]
+            status = Game.Status.ROOM_CHANGED
+
+        self.setStatus(status)
+        self.setImage()
 
     def handleLook(self, item):
-        pass
+        status = Game.Status.BAD_ITEM
+        if item in self.currentRoom.items:
+            status = self.currentRoom.items[item]
+
+        self.setStatus(status)
 
     def handleTake(self, grabbable):
-        pass
+        status = Game.Status.BAD_GRABBABLE
+
+        if grabbable in self.currentRoom.grabbables:
+            self.inventory.append(grabbable)
+            self.currentRoom.deleteGrabbable(grabbable)
+            status = self.currentRoom.grabbables[grabbable]
+        
+        self.setStatus(status)
 
     def handleUse(self, event):
         pass
@@ -172,7 +190,7 @@ class Game(Frame):
         action = action.lower()
 
         # stop the game if applicable
-        if (Game.EXIT_ACTION.find(action) > -1):
+        if (action in Game.EXIT_ACTION):
             exit()
             
         # clear the entry if the current room is None

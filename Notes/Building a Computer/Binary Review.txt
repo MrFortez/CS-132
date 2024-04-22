@@ -1,0 +1,31 @@
+Represent 17 in unsigned binary.
+
+17 / 2 = 8 r 1
+8 / 2 = 4 r 0
+4 / 2 = 2 r 0
+2 / 2 = 1 r 0
+1 / 2 = 0 r 1
+
+10001
+
+Signed Magnitude Notation:
+Most significant bit is:
+    0 if (+)
+    1 if (-)
+
+Ex w/4 bits:
+0010 = +2
+1010 = -2
+
+
+One's Compliment Notation:
+Idea: Flip the bits to negate
+Ex: w/4 bits
+    0101 -> +5
+    1010 -> -5
+
+Two's Compliment Notation:
+Idea: Flip the bits, then add one to negate
+Ex: w/8 bits
+    0000 0101 = 5
+    1111 1011 = -5
