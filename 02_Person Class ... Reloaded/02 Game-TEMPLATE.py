@@ -13,6 +13,7 @@ from Constants import *
 
 
 class Person(pygame.sprite.Sprite, Item):
+
     def __init__(self):
         pygame.sprite.Sprite.__init__(self)
         Item.__init__(self)
@@ -115,7 +116,7 @@ while (RUNNING):
     
     # and then send that dictionary to the Person object for them to
     # update themselves accordingly.
-    p.update(pressedKeys)
+    p.update(pressedKeys) 
 
     # fill the screen with a color
     screen.fill(WHITE)

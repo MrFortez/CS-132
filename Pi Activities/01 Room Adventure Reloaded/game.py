@@ -80,7 +80,7 @@ class Game(Frame):
         r4.addGrabbable("a_gun")
 
         # set current room
-        self.current_room = r1
+        self.currentRoom = r1
 
     def setupGUI(self) -> None:
         
@@ -117,13 +117,31 @@ class Game(Frame):
         
 
     def setImage(self):
-        pass
+        if (self.currentRoom == None):
+            img = PhotoImage(file=os.path.join("images", "skull.gif"))
+        else:
+            img = PhotoImage(file=self.currentRoom.image)
+
+        self.imageContainer.config(image=img)
+        self.imageContainer.image = img
 
     def setStatus(self, status: str):
-        pass
-    
+        self.text.config(state=NORMAL)
+        self.text.delete(1.0, END)
+
+        if self.currentRoom == None:
+            self.text.insert(END, Game.Status.DEAD)
+        else:
+            content = f"{self.currentRoom}\n"
+            content += f"You are carrying: {self.inventory}\n\n"
+            content += status
+            self.text.insert(END, content)
+
+        self.text.config(state=DISABLED)        
+
     def clearEntry(self):
-        pass
+        self.playerInput.delete(0, END)
+
 
     def handleGo(self, direction):
         pass
@@ -138,10 +156,52 @@ class Game(Frame):
         pass
 
     def handleDefault(self, event):
-        pass
+        self.setStatus(Game.Status.DEFAULT)
+        self.clearEntry()
 
     def play(self):
-        pass
+        self.setupGame()
+        self.setupGUI()
+        self.setImage()
+        self.setStatus("")
 
-    def processInput(self):
-        pass
+    def processInput(self, event):
+
+        # get the input from the entry element
+        action = self.playerInput.get()
+        action = action.lower()
+
+        # stop the game if applicable
+        if (Game.EXIT_ACTION.find(action) > -1):
+            exit()
+            
+        # clear the entry if the current room is None
+        if self.currentRoom == None:
+            self.clearEntry()
+            return
+    
+        # sanitize the input
+        words = action.split()
+
+        # handle an incorrect syntax input
+        if len(words) != 2:
+            self.handleDefault()
+            return
+        
+        # assign verbs and nouns
+        verb = words[0]
+        noun = words[1]
+
+        # handle input
+        match verb:
+            case "go":
+                self.handleGo(noun)
+            case "look":
+                self.handleLook(noun)
+            case "take":
+                self.handleTake(noun)
+            case "use":
+                self.handleUse(noun)
+
+        self.clearEntry()
+            
