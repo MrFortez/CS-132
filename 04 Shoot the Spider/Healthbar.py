@@ -1,6 +1,6 @@
 import pygame
 import sys
-from Constants import *
+from constants import *
 
 # Health bar class
 class HealthBar:

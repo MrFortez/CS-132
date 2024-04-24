@@ -1,0 +1,11 @@
+Floating Point Notation
+    Note: the one we cover in class is not IEEE 754
+
+Ex: The value 56.0 in 32-bit FPN
+
+
++/- | Exponent | Mantissa
+ ---|----------|------------
+0   | 0000 0011| 000 0000 0000 0000 0000 0111
+0 +     8-bit       Unsigned Binary
+1 -   2s comp

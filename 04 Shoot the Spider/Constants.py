@@ -9,7 +9,6 @@
 import pygame
 from random import randint, choice
 
-
 # constants for screen size
 WIDTH = 800
 HEIGHT = 600
@@ -22,7 +21,7 @@ WHITE = [0xFF, 0xFF, 0xFF]
 BLACK = [0x00, 0x00, 0x00]
 GREEN = (0, 255, 0)
 
-COLORS = [BLUE, RED, GREY, WHITE, BLACK]
+COLORS = [BLUE, RED, GREY, WHITE, BLACK, GREEN]
 
 # keys from pygame
 from pygame.locals import (

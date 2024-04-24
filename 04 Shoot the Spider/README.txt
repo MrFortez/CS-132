@@ -1,3 +1,5 @@
+Brandon J Fortes, April 23, 2024
+
 04 Shoot The Spider
 This is a heavily altered variation on the basic shoot the spider concept based on the 
 Nightmare Power Orb Boss Fight from Kirby's Adventure on the NES. 

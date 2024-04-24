@@ -1,10 +1,10 @@
 import os
-from Constants import *
+from constants import *
 import pygame    
-from Player import Player
-from Enemy import Enemy
-from Projectile import Projectile
-import Globals
+from player import Player
+from enemy import Enemy
+from projectile import Projectile
+import globals
 
 
 # pygame mixer init
@@ -14,7 +14,7 @@ pygame.mixer.init()
 pygame.init()
 
 # Set up the drawing window
-screen = pygame.display.set_mode([WIDTH, HEIGHT])
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
 background = pygame.transform.scale(pygame.image.load(os.path.join("images", "Space3.png")), (WIDTH, HEIGHT))
 
 # Set up the characters
@@ -26,8 +26,8 @@ pygame.mixer.music.load(os.path.join("Sound", "Music", "It Has to Be This Way.og
 pygame.mixer.music.play(loops=-1)
 
 # Add to sprite groups
-Globals.players.add(kirby)
-Globals.enemies.add(nightmare)
+globals.players.add(kirby)
+globals.enemies.add(nightmare)
          
 # To be used once either player or enemy reaches zero health
 ENDING = False
@@ -37,7 +37,7 @@ RUNNING = True
 while RUNNING:
 
     # Update Global Timer
-    Globals.globalTime = pygame.time.get_ticks()
+    globals.globalTime = pygame.time.get_ticks()
 
     # Did the user click the window close button?
     for event in pygame.event.get():
@@ -54,19 +54,20 @@ while RUNNING:
     # update themselves accordingly.
     kirby.update(pressedKeys)
     nightmare.update(pressedKeys)
-    Globals.playerProjectiles.update(pressedKeys)
-    Globals.enemyProjectiles.update(pressedKeys)
+    globals.playerProjectiles.update(pressedKeys)
+    globals.enemyProjectiles.update(pressedKeys)
 
     # Blit Characters to screen
     screen.blit(background, (0, 0))
     screen.blit(nightmare.surf, nightmare.rect)
-    for sprite in Globals.playerProjectiles: 
+    for sprite in globals.playerProjectiles: 
         screen.blit(sprite.surf, sprite.rect)
     
-    for sprite in Globals.enemyProjectiles:
+    for sprite in globals.enemyProjectiles:
         screen.blit(sprite.surf, sprite.rect)
 
-    if (not (kirby.isInvincible and Globals.globalTime % 2 == 0)):
+    # If player is invincible, flicker the player's sprite
+    if (not (kirby.isInvincible and globals.globalTime % 2 == 0)):
         screen.blit(kirby.surf, kirby.rect)
 
     # Draw Health Bars
@@ -80,12 +81,14 @@ while RUNNING:
     # Flip the display
     pygame.display.flip()
 
+    # if player reaches 0 health, initiate lose sequence
     if (kirby.health == 0):
         pygame.mixer.music.load(os.path.join("Sound", "SFX", "Death Sound Effect.mp3"))
         pygame.mixer.music.play(loops=1)
         RUNNING = False
         ENDING = True
 
+    # if enemy reaches 0 health, initiate win sequence
     if (nightmare.health == 0):
         pygame.mixer.music.load(os.path.join("Sound", "Music", "Victory Dance.mp3"))
         pygame.mixer.music.play(loops=1)
@@ -93,9 +96,10 @@ while RUNNING:
         ENDING = True
 
     # Ensure program maintains a rate of 30 frames per second
-    Globals.clock.tick(120)
+    globals.clock.tick(120)
 
 
+# only does this loop if one of the characters reachs 0 health
 while (ENDING):
     if (kirby.health == 0):
         for event in pygame.event.get():
@@ -157,4 +161,4 @@ while (ENDING):
 
 
 # Done! Time to quit.
-pygame.quit() 
+pygame.quit()                     

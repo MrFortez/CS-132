@@ -1,7 +1,8 @@
 import pygame
-from Constants import *
+from constants import *
 from abc import ABC, abstractmethod
 
+# The base class for all sprites in the game.
 class Character(ABC, pygame.sprite.Sprite):
     def __init__(self, spriteX, spriteY, collisionX, collisionY, health, name, size, image, colorkey,):
         pygame.sprite.Sprite.__init__(self)
@@ -17,6 +18,7 @@ class Character(ABC, pygame.sprite.Sprite):
         self.collisionRect = pygame.Rect.clip(self.collisionRect, self.rect)
         self.surf.fill((255, 255, 255), self.collisionRect)
         
+    # get the value of health
     @property
     def health(self):
         return self._health
@@ -43,6 +45,7 @@ class Character(ABC, pygame.sprite.Sprite):
             except:
                 self._name = "player 1"
     
+    # Change the value of health by the given value
     def changeHealth(self, val):
         self.health += val
 
@@ -72,6 +75,7 @@ class Character(ABC, pygame.sprite.Sprite):
             self.rect.move_ip(0, yVal)
             self.collisionRect.move_ip(0, yVal)
 
+    # set the Character's position on the board
     def setPosition(self, pos):
         if (not (pos[0] < 0 or pos[0] + self.size[0] > WIDTH)):
             self.rect.x = pos[0]
@@ -80,7 +84,7 @@ class Character(ABC, pygame.sprite.Sprite):
             self.rect.y = pos[1]   
             self.collisionRect.y = pos[1]
 
-
+    # an abstract method for a method that is run every frame (every sprite must update every frame)
     @abstractmethod
     def update(self, presses):
         print("update needs to be overriden!")
