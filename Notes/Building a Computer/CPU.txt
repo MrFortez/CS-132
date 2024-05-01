@@ -1,0 +1,8 @@
+CPU - Central Processing Unit
+
+Instruction Cycle for the CPU:
+1. Fetch: get the next Instruction
+2. Increment the program counter by pointing to the next Instruction
+3. Decode current instruction; Very operands and op-code
+4. Execute the instruction
+5. Return to Step One

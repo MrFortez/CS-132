@@ -1,3 +1,7 @@
+########################################################
+# Brandon Fortes, Blair Borque, Adam Guillory
+########################################################
+
 from tkinter import Tk
 from game import Game
 
