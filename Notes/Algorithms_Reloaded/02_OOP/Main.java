@@ -9,14 +9,24 @@ public class Main {
         System.out.println(args[i]);
       }
 
-      Fraction fraction = new Fraction(4, 20);
-      System.out.println(fraction);
-      System.out.println(fraction.toString());
+    //   Fraction fraction = new Fraction(4, 20);
+    //   System.out.println(fraction);
+    //   System.out.println(fraction.toString());
 
-      Fraction f3 = new Fraction(3,4);
+    //   Fraction f3 = new Fraction(3,4);
 
-      f3 = fraction.add(f3);
-      System.out.println(f3);
+    //   f3 = fraction.add(f3);
+    //   System.out.println(f3);
+
+    int[] test = {1, 2, 3};
+    for (int item : test) {
+        item += 1;
+    }
+
+    for (int item : test) {
+        System.err.println(item);
+    }
+
 
     }
   }
